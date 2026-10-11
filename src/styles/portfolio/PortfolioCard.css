@@ -399,3 +399,38 @@
         transition: none;
     }
 }
+
+/* Alternate portfolio card layout */
+.portfolio-card-wrapper:nth-child(even) .portfolio-card {
+    grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+}
+
+.portfolio-card-wrapper:nth-child(even) .portfolio-card-image {
+    order: 2;
+}
+
+.portfolio-card-wrapper:nth-child(even) .portfolio-card-content {
+    order: 1;
+}
+
+/* Keep alternating layout on tablet */
+@media (max-width: 1000px) and (min-width: 701px) {
+    .portfolio-card-wrapper:nth-child(even) .portfolio-card {
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+    }
+}
+
+/* Stack normally on mobile */
+@media (max-width: 700px) {
+    .portfolio-card-wrapper:nth-child(even) .portfolio-card {
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio-card-wrapper:nth-child(even) .portfolio-card-image {
+        order: 0;
+    }
+
+    .portfolio-card-wrapper:nth-child(even) .portfolio-card-content {
+        order: 0;
+    }
+}
